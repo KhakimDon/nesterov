@@ -6,7 +6,7 @@
 
 <template>
     <div>
-        <div class="h-[950px] w-[100%] relative mt-[114px]">
+        <div class="h-[950px] w-[100%] relative">
             <div class="h-[100%] w-[100%]  flex items-center justify-between">
 
                 <div class="left h-[663px] w-[1229px] flex flex-col items-end justify-start pt-[79px] z-[50]">
