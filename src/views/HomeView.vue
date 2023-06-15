@@ -1,9 +1,19 @@
-<script setup>
-import TheWelcome from '../components/TheWelcome.vue'
-</script>
-
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+    <div>
+        <Apartaments />
+    </div>
 </template>
+
+<script setup></script>
+
+<script>
+import Apartaments from '../components/Apartaments.vue';
+
+export default {
+    components: { Apartaments }
+}
+
+</script>
+<style>
+
+</style>
