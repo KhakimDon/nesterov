@@ -9,11 +9,15 @@ export default {
         selection: false,
       },
       idx: 0,
+      idx2: 0,
     };
   },
   methods:{
     changeImg(){
         this.idx = event.target.value
+    },
+    changeFlat(){
+      this.idx2 = event.target.value
     }
   }
 };
@@ -31,6 +35,7 @@ export default {
 
     <div class="min-h-[755px] mt-[31px]">
       <nav class="flex justify-between">
+
         <div
           :class="{ active: this.steps.section }"
           class="text-[#A2A2A2] h-[90px]"
@@ -62,6 +67,7 @@ export default {
             </select>
           </div>
         </div>
+
         <div
           :class="{ active: this.steps.flat }"
           class="text-[#A2A2A2] h-[90px]"
@@ -71,14 +77,16 @@ export default {
           >
           <div v-if="this.steps.flat">
             <select
+            @change="changeFlat()"
               class="w-[100%] border-b-[1px] border-[black] border-solid bg-[transparent] cursor-pointer mt-[15px]"
             >
-              <option class="text-[#441D06]" value="">lalala</option>
-              <option class="text-[#441D06]" value="">lalala</option>
-              <option class="text-[#441D06]" value="">lalala</option>
+              <option @mouseenter="changeFlat()" class="text-[#441D06]" value="0">Выбор этажа</option>
+              <option @mouseenter="changeFlat()" class="text-[#441D06]" value="1">Первый</option>
+              <option @mouseenter="changeFlat()" class="text-[#441D06]" value="2">lalala</option>
             </select>
           </div>
         </div>
+
         <div
           :class="{ active: this.steps.apartament }"
           class="text-[#A2A2A2] h-[90px]"
@@ -96,6 +104,7 @@ export default {
             </select>
           </div>
         </div>
+
         <div
           :class="{ active: this.steps.selection }"
           class="text-[#A2A2A2] h-[90px]"
@@ -113,10 +122,13 @@ export default {
             </select>
           </div>
         </div>
+
       </nav>        
       <div class="w-[100%] h-[755px] mb-[200px]">
+
+       <div v-if="this.steps.section">
         <img id="photo" :src="`src/assets/img/${this.idx}.png`"  alt="" />
-        <button class="flex items-center translate-y-[-50%] float-right bg-[#FF9900] text-white px-[40px] py-[10px]">
+        <button @click="this.steps.section = false, this.steps.flat = true" class="flex items-center translate-y-[-50%] float-right bg-[#FF9900] text-white px-[40px] py-[10px]">
             <span class="text-[20px]">ДАЛЕЕ</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -133,6 +145,29 @@ export default {
             />
           </svg>
         </button>
+      </div>
+
+      <div v-if="this.steps.flat">
+        <img id="photo" :src="`src/assets/img/1-${this.idx2}.png`"  alt="" />
+        <button @click="this.steps.section = false, this.steps.flat = true" class="flex items-center translate-y-[-50%] float-right bg-[#FF9900] text-white px-[40px] py-[10px]">
+            <span class="text-[20px]">ДАЛЕЕ</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-[50px] ml-[10px] h-[50px]"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+            />
+          </svg>
+        </button>
+      </div>
+
       </div>
     </div>
   </div>
