@@ -10,15 +10,15 @@ import { mapGetters } from 'vuex';
 import './style.css'
 export default {
   computed: {
-    ...mapGetters(["arr"])
+    ...mapGetters(["sections"])
   },
   mounted() {
-    console.log(this.arr);
+    console.log(this.sections);
   }
 }
 </script>
 
-<template>
+<template>  
   <header class="head h-[114px] w-[100%] top-[0] sticky z-[999]">
     <div class="h-[100%] w-[80%]  m-auto flex items-center justify-between">
 
