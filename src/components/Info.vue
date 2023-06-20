@@ -1,4 +1,4 @@
-<script>
+  <script>
 export default {
   data() {
     return {
@@ -82,7 +82,13 @@ export default {
             >
               <option @mouseenter="changeFlat()" class="text-[#441D06]" value="0">Выбор этажа</option>
               <option @mouseenter="changeFlat()" class="text-[#441D06]" value="1">Первый</option>
-              <option @mouseenter="changeFlat()" class="text-[#441D06]" value="2">lalala</option>
+              <option @mouseenter="changeFlat()" class="text-[#441D06]" value="2">Второй</option>
+              <option @mouseenter="changeFlat()" class="text-[#441D06]" value="3">Третий</option>
+              <option @mouseenter="changeFlat()" class="text-[#441D06]" value="4">Четвертый</option>
+              <option @mouseenter="changeFlat()" class="text-[#441D06]" value="5">Пятый</option>
+              <option @mouseenter="changeFlat()" class="text-[#441D06]" value="6">6</option>
+              <option @mouseenter="changeFlat()" class="text-[#441D06]" value="7">7</option>
+              <option @mouseenter="changeFlat()" class="text-[#441D06]" value="8">8</option>
             </select>
           </div>
         </div>
