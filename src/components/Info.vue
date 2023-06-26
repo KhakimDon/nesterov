@@ -4,7 +4,7 @@ export default {
   data() {
     return {
       steps: {
-        section: true,
+        section: true, 
         flat: false,
         apartament: false,
         selection: false,
@@ -17,6 +17,9 @@ export default {
       },
       eventFlat: {
         img: 'src/assets/img/1-0.png'
+      },
+      eventApartament: {
+        img: 'src/assets/img/rooms/room0.png'
       }
     };
   },
@@ -36,6 +39,10 @@ export default {
     changeFlat() {
       this.eventFlat = this.eventSection.floors.filter(item => item.floor_id == event.target.value)[0]
     },
+    changeRoom(){
+      this.eventApartament = this.eventFlat.rooms.filter(item => item.room_id == event.target.value)[0]
+      console.log(this.eventApartament);
+    }
   },
 };
 </script>
@@ -78,6 +85,7 @@ export default {
               </option>
             </select>
           </div>
+
         </div>
 
         <div
@@ -106,7 +114,7 @@ export default {
                 :value="item.floor_id"
               >
                 {{ item.floor }}
-              </option>
+              </option> 
             </select>
           </div>
         </div>
@@ -120,11 +128,11 @@ export default {
           >
           <div v-if="this.steps.apartament">
             <select
+            @change="changeRoom()"
               class="w-[100%] border-b-[1px] border-[black] border-solid bg-[transparent] cursor-pointer mt-[15px]"
             >
-              <option class="text-[#441D06]" value="">lalala</option>
-              <option class="text-[#441D06]" value="">lalala</option>
-              <option class="text-[#441D06]" value="">lalala</option>
+              <option hidden class="text-[#441D06]" value="">Выбор квартиры на этаже</option>
+              <option v-for="item of this.eventFlat.rooms" :key="item.id" class="text-[#441D06]"  :value="item.room_id"> {{item.room }} </option>
             </select>
           </div>
         </div>
@@ -175,11 +183,12 @@ export default {
           </button>
         </div>
 
+        
         <!-- отображение этажа  -->
         <div v-if="this.steps.flat">
           <img id="photo" :src="this.eventFlat.img" alt="" />
           <button
-            @click="(this.steps.section = false), (this.steps.flat = true)"
+            @click="(this.steps.flat = false), (this.steps.apartament = true)"
             class="flex items-center translate-y-[-50%] float-right bg-[#FF9900] text-white px-[40px] py-[10px]"
           >
             <span class="text-[20px]">ДАЛЕЕ</span>
@@ -203,7 +212,7 @@ export default {
         
         <!-- отображение выбора квартиры  -->
         <div v-if="this.steps.apartament">
-          <img id="photo" src="src/assets/img/0.png" alt="" />
+          <img id="photo" :src="this.eventApartament.img" alt="" />
           <button
           @click="(this.steps.section = false), (this.steps.flat = true)"
             class="flex items-center translate-y-[-50%] float-right bg-[#FF9900] text-white px-[40px] py-[10px]"
@@ -226,6 +235,7 @@ export default {
           </button>
         </div>
 
+       
 
       </div>
     </div>

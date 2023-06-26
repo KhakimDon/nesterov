@@ -11,7 +11,7 @@ export default createStore({
         floors: [
           // этаж 1
           {
-            img: "src/assets/img/1-1.png",
+            img: "src/assets/img/1-1.png", 
             floor_id: 1,
             floor: "Этаж 1",
             rooms: [
@@ -20,7 +20,7 @@ export default createStore({
               {
                 room_id: 1,
                 room: "1 комната",
-                img: '../assets/img/rooms/room1.png',
+                img: 'src/assets/img/rooms/room1.png',
                 items: [
                   {
                     img: "../",
@@ -37,7 +37,7 @@ export default createStore({
               {
                 room_id: 2,
                 room: "2 комната",
-                img: '../assets/img/rooms/room2.png',
+                img: 'src/assets/img/rooms/room2.png',
                 items: [
                   {
                     img: "",
@@ -62,7 +62,7 @@ export default createStore({
               {
                 room_id: 3,
                 room: "3 комната",
-                img: '../assets/img/rooms/room3.png',
+                img: 'src/assets/img/rooms/room3.png',
                 items: [
                   {
                     img: "",
@@ -87,7 +87,7 @@ export default createStore({
               {
                 room_id: 4,
                 room: "4 комната",
-                img: '../assets/img/rooms/room4.png',
+                img: 'src/assets/img/rooms/room4.png',
                 items: [
                   {
                     img: "",
