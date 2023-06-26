@@ -1,15 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
-    fontFamily:{
-      'open': ['Open Sans', 'sans-serif']
+    fontFamily: {
+      open: ["Open Sans", "sans-serif"],
     },
     extend: {},
   },
-  plugins: [],
-}
-
+  plugins: [require("daisyui")],
+};
