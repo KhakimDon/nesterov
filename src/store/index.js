@@ -40,7 +40,7 @@ export default createStore({
                 img: 'src/assets/img/rooms/room2.png',
                 items: [
                   {
-                    img: "",
+                    img: "src/assets/img/Rectangle 37.png",
                     kvM: 60,
                     price: 55000,
                     floor: 1,
@@ -48,7 +48,7 @@ export default createStore({
                     rooms: 2,
                   },
                   {
-                    img: "",
+                    img: "src/assets/img/Rectangle 37.png",
                     kvM: 68,
                     price: 58000,
                     floor: 1,
@@ -65,7 +65,7 @@ export default createStore({
                 img: 'src/assets/img/rooms/room3.png',
                 items: [
                   {
-                    img: "",
+                    img: "src/assets/img/Rectangle 37.png",
                     kvM: 95,
                     price: 75000,
                     floor: 1,
@@ -73,7 +73,7 @@ export default createStore({
                     rooms: 3,
                   },
                   {
-                    img: "",
+                    img: "src/assets/img/Rectangle 37.png",
                     kvM: 100,
                     price: 82000,
                     floor: 1,
@@ -90,7 +90,7 @@ export default createStore({
                 img: 'src/assets/img/rooms/room4.png',
                 items: [
                   {
-                    img: "",
+                    img: "src/assets/img/Rectangle 37.png",
                     kvM: 130,
                     price: 120000,
                     floor: 1,
@@ -101,6 +101,7 @@ export default createStore({
               },
             ],
           },
+          
           // этаж 2
           {
             img: "src/assets/img/1-2.png",

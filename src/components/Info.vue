@@ -1,4 +1,4 @@
-  <script>
+<script>
 import { mapGetters } from "vuex";
 export default {
   data() {
@@ -27,7 +27,7 @@ export default {
   computed: {
     ...mapGetters(["sections"]),
   },
-  mounted() {},
+  mounted() { },
   methods: {
     chooseApartament() {
       console.log("asd");
@@ -68,101 +68,58 @@ export default {
 
     <div class="min-h-[755px] mt-[31px]">
       <nav class="flex justify-between">
-        <div
-          :class="{ active: this.steps.section }"
-          class="text-[#A2A2A2] h-[90px]"
-        >
-          <span class="text-[24px] font-[300] uppercase cursor-pointer"
-            >Выбор секции</span
-          >
+        <div :class="{ active: this.steps.section }" class="text-[#A2A2A2] h-[90px]">
+          <span class="text-[24px] font-[300] uppercase cursor-pointer">Выбор секции</span>
           <div v-if="this.steps.section">
-            <select
-              @change="changeSection()"
-              class="w-[100%] border-b-[1px] border-[black] border-solid bg-[transparent] cursor-pointer mt-[15px]"
-            >
-              <option
-                hidden
-                class="text-[#441D06] hover:bg-[#441D06]"
-                value="0"
-              >
+            <select @change="changeSection()"
+              class="w-[100%] border-b-[1px] border-[black] border-solid bg-[transparent] cursor-pointer mt-[15px]">
+              <option hidden class="text-[#441D06] hover:bg-[#441D06]" value="0">
                 Выбор секции
               </option>
 
-              <option
-                v-for="item of this.sections"
-                :key="item.id"
-                class="text-[#441D06] hover:bg-[#441D06]"
-                :value="item.section_id"
-              >
+              <option v-for="item of this.sections" :key="item.id" class="text-[#441D06] hover:bg-[#441D06]"
+                :value="item.section_id">
                 Секция {{ item.section_id }}
               </option>
             </select>
           </div>
         </div>
 
-        <div
-          :class="{ active: this.steps.flat }"
-          class="text-[#A2A2A2] h-[90px]"
-        >
-          <span class="text-[24px] font-[300] uppercase cursor-pointer"
-            >Выбор этажа</span
-          >
+        <div :class="{ active: this.steps.flat }" class="text-[#A2A2A2] h-[90px]">
+          <span class="text-[24px] font-[300] uppercase cursor-pointer">Выбор этажа</span>
           <div v-if="this.steps.flat">
-            <select
-              @change="changeFlat()"
-              class="w-[100%] border-b-[1px] border-[black] border-solid bg-[transparent] cursor-pointer mt-[15px]"
-            >
+            <select @change="changeFlat()"
+              class="w-[100%] border-b-[1px] border-[black] border-solid bg-[transparent] cursor-pointer mt-[15px]">
               <option hidden class="text-[#441D06]" value="0">
                 Выбор этажа
               </option>
-              <option
-                v-for="item of this.eventSection.floors"
-                :key="item.id"
-                class="text-[#441D06]"
-                :value="item.floor_id"
-              >
+              <option v-for="item of this.eventSection.floors" :key="item.id" class="text-[#441D06]"
+                :value="item.floor_id">
                 {{ item.floor }}
               </option>
             </select>
           </div>
         </div>
 
-        <div
-          :class="{ active: this.steps.apartament }"
-          class="text-[#A2A2A2] h-[90px]"
-        >
-          <span class="text-[24px] font-[300] uppercase cursor-pointer"
-            >Выбор квартиры на этаже</span
-          >
+        <div :class="{ active: this.steps.apartament }" class="text-[#A2A2A2] h-[90px]">
+          <span class="text-[24px] font-[300] uppercase cursor-pointer">Выбор квартиры на этаже</span>
           <div v-if="this.steps.apartament">
-            <select
-              @change="changeRoom()"
-              class="w-[100%] border-b-[1px] border-[black] border-solid bg-[transparent] cursor-pointer mt-[15px]"
-            >
+            <select @change="changeRoom()"
+              class="w-[100%] border-b-[1px] border-[black] border-solid bg-[transparent] cursor-pointer mt-[15px]">
               <option hidden class="text-[#441D06]" value="">
                 Выбор квартиры на этаже
               </option>
-              <option
-                v-for="item of this.eventFlat.rooms"
-                :key="item.id"
-                class="text-[#441D06]"
-                :value="item.room_id"
-              >
+              <option v-for="item of this.eventFlat.rooms" :key="item.id" class="text-[#441D06]" :value="item.room_id">
                 {{ item.room }}
               </option>
             </select>
           </div>
         </div>
 
-        <div
-          :class="{ active: this.steps.selection }"
-          class="text-[#A2A2A2] h-[90px]"
-        >
-          <span class="text-[24px] font-[300] uppercase cursor-pointer"
-            >Подбор квартиры</span
-          >
+        <div :class="{ active: this.steps.selection }" class="text-[#A2A2A2] h-[90px]">
+          <span class="text-[24px] font-[300] uppercase cursor-pointer">Подбор квартиры</span>
           <div v-if="this.steps.selection">
-       
+
           </div>
         </div>
       </nav>
@@ -170,24 +127,12 @@ export default {
         <!-- отображение секций  -->
         <div v-if="this.steps.section">
           <img id="photo" :src="this.eventSection.img" alt="" />
-          <button
-            @click="(this.steps.section = false), (this.steps.flat = true)"
-            class="flex items-center translate-y-[-50%] float-right bg-[#FF9900] text-white px-[40px] py-[10px]"
-          >
+          <button @click="(this.steps.section = false), (this.steps.flat = true)"
+            class="flex items-center translate-y-[-50%] float-right bg-[#FF9900] text-white px-[40px] py-[10px]">
             <span class="text-[20px]">ДАЛЕЕ</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-[50px] ml-[10px] h-[50px]"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-              />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-[50px] ml-[10px] h-[50px]">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
             </svg>
           </button>
         </div>
@@ -195,24 +140,12 @@ export default {
         <!-- отображение этажа  -->
         <div v-if="this.steps.flat">
           <img id="photo" :src="this.eventFlat.img" alt="" />
-          <button
-            @click="(this.steps.flat = false), (this.steps.apartament = true)"
-            class="flex items-center translate-y-[-50%] float-right bg-[#FF9900] text-white px-[40px] py-[10px]"
-          >
+          <button @click="(this.steps.flat = false), (this.steps.apartament = true)"
+            class="flex items-center translate-y-[-50%] float-right bg-[#FF9900] text-white px-[40px] py-[10px]">
             <span class="text-[20px]">ДАЛЕЕ</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-[50px] ml-[10px] h-[50px]"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-              />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-[50px] ml-[10px] h-[50px]">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
             </svg>
           </button>
         </div>
@@ -220,28 +153,15 @@ export default {
         <!-- отображение апартаментов  -->
         <div v-if="this.steps.apartament">
           <img id="photo" :src="this.eventApartament.img" alt="" />
-          <button
-            @click="
-              (this.steps.apartament = false),
-                (this.steps.selection = true),
-                chalange_fix()
-            "
-            class="flex items-center translate-y-[-50%] float-right bg-[#FF9900] text-white px-[40px] py-[10px]"
-          >
+          <button @click="
+            (this.steps.apartament = false),
+            (this.steps.selection = true),
+            chalange_fix()
+            " class="flex items-center translate-y-[-50%] float-right bg-[#FF9900] text-white px-[40px] py-[10px]">
             <span class="text-[20px]">ДАЛЕЕ</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-[50px] ml-[10px] h-[50px]"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-              />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-[50px] ml-[10px] h-[50px]">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
             </svg>
           </button>
         </div>
@@ -249,85 +169,59 @@ export default {
         <!-- самый последний блок  -->
         <div v-if="this.steps.selection">
           <!-- <img id="photo" :src="this.eventApartament.img" alt="" /> -->
-          <div class="min-h-[300px] bg-[red]">
+          <div class="min-h-[300px]">
             <!-- syuda  -->
 
-            <div
-              v-for="item of this.eventSelections.items"
-              :key="item.id"
-              class="h-[365px] mb-[90px] w-[100%] flex justify-between"
-            >
-              <div class="left h-[365px] w-[799px] bg-[green]">
+            <div v-for="item of this.eventSelections.items" :key="item.id"
+              class="h-[365px] mb-[90px] w-[100%] flex justify-between">
+              <div class="left h-[365px] w-[799px]">
                 <img class="h-[100%]" :src="item.img" alt="amir" />
               </div>
-              <div class="right h-[365px] bg-[blue] w-[700px] flex-col">
-                <span
-                  class="flex bg-[yellow] w-[300px] justify-between text-[#000] text-[24px]"
-                  >Количесвто комнат
-                  <h5>{{ item.rooms }}</h5></span
-                >
+              <div class="right h-[365px] w-[700px] flex flex-col justify-between">
+                <span class="flex w-[300px] justify-between text-[#000] text-[24px]">Количесвто комнат
+                  <h5>{{ item.rooms }}</h5>
+                </span>
 
-                <div
-                  class="mt-[35px] w-[100%] bg-[green] flex items-center justify-between"
-                >
-                  <span
-                    class="flex bg-[yellow] w-[300px] justify-between text-[#000] text-[24px]"
-                    >Площадь
-                    <h5>{{ item.kvM }} кв.м.</h5></span
-                  >
+                <div class=" w-[100%] flex items-center justify-between">
+                  <span class="flex w-[300px] justify-between text-[#000] text-[24px]">Площадь
+                    <h5>{{ item.kvM }} кв.м.</h5>
+                  </span>
 
-                  <div class="flex items-center h-[100px] bg-[gray] w-[300px]">
-                    <div
-                      class="h-[78px] w-[78px] rounded-[50%] absolute bg-[#FF9900] z-[1]"
-                    ></div>
-                    <button
-                      class="ml-[60px] mr-[10px] z-[10] text-[#000] text-[18px] font-semibold"
-                    >
+                  <router-link to="/property" class="flex items-center h-[100px] w-[300px]">
+
+                    <div class="h-[78px] w-[78px] rounded-[50%] absolute bg-[#FF9900] z-[1]"></div>
+                    <button class="ml-[60px] mr-[10px] z-[10] text-[#000] text-[18px] font-semibold">
                       Узнать больше
                     </button>
-                    <svg
-                      width="23"
-                      height="23"
-                      viewBox="0 0 23 23"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
+                    <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M13.4543 4.87402L12.42 5.9083L17.2953 10.7814H2.875V12.2189H17.2953L12.4207 17.0928L13.4543 18.1263L19.5637 12.017L20.0574 11.5002L19.5637 10.9834L13.4543 4.87402Z"
-                        fill="black"
-                      />
+                        fill="black" />
                     </svg>
-                  </div>
+                  </router-link>
+
                 </div>
 
-                <span
-                  class="flex bg-[yellow] w-[300px] justify-between text-[#000] text-[24px]"
-                  >Этаж
-                  <h5>{{ item.floor }}</h5></span
-                >
+                <span class="flex w-[300px] justify-between text-[#000] text-[24px]">Этаж
+                  <h5>{{ item.floor }}</h5>
+                </span>
+
+                <span class="flex w-[300px] justify-between text-[#000] text-[24px]">Секция
+                  <h5>{{ item.floor }}</h5>
+                </span>
+                <span class="flex w-[300px] justify-between text-[#000] text-[24px]">Стоимость
+                  <h5>${{ item.price }}</h5>
+                </span>
               </div>
             </div>
           </div>
-          <button
-            @click="
-              (this.steps.apartament = false), (this.steps.selection = true)
-            "
-            class="flex items-center translate-y-[-50%] float-right bg-[#FF9900] text-white px-[40px] py-[10px]"
-          >
+          <button @click="
+            (this.steps.apartament = false), (this.steps.selection = true)
+            " class="flex items-center translate-y-[-50%] float-right bg-[#FF9900] text-white px-[40px] py-[10px]">
             <span class="text-[20px]">ДАЛЕЕ</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-[50px] ml-[10px] h-[50px]"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-              />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-[50px] ml-[10px] h-[50px]">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
             </svg>
           </button>
         </div>
@@ -339,8 +233,8 @@ export default {
 
 
 <style scoped>
-.active {
-}
+.active {}
+
 .active span {
   color: #441d06;
   font-weight: 400;

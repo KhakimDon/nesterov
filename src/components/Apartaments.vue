@@ -64,7 +64,7 @@
             </div>
         </div>
         <div class="h-[186px] w-[100%]">
-            <div class="h-[100%] w-[70%] bg-[#441D06] flex items-center justify-evenly">
+            <div class="h-[100%] w-[75%] bg-[#441D06] flex items-center justify-around">
                 <h3 class="uppercase text-[24px] text-[#fff] leading-[2.5rem] w-[650px] font-light">Стоимость квартиры легко
                     рассчитать с помощью нашего калькулятора</h3>
 
