@@ -2,6 +2,7 @@ import { createStore } from "vuex";
 
 export default createStore({
   state: {
+    filtered_finish: {},
     arr: "asdasd",
     sections: [
       // первая секция
@@ -783,8 +784,17 @@ export default createStore({
   },
   getters: {
     sections: (state) => state.sections,
+    filtered_finish: (state) => state.filtered_finish,
   },
-  mutations: {},
-  actions: {},
+  mutations: {
+    FINISH_FILTERED_MUTATION(state, item){
+      state.filtered_finish = item
+    }
+  },
+  actions: {
+    FINISH_FILTERED({commit}, item){
+      commit("FINISH_FILTERED_MUTATION", item)
+    }
+  },
   modules: {},
 });

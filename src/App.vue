@@ -13,7 +13,6 @@ export default {
     ...mapGetters(["sections"])
   },
   mounted() {
-    console.log(this.sections);
   }
 }
 </script>

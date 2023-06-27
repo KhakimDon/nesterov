@@ -5,8 +5,14 @@
 
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-
+    mounted(){
+        console.log(this.filtered_finish);
+    },
+    computed:{
+        ...mapGetters(["filtered_finish"])
+    }
 }
 </script>
 
@@ -15,7 +21,7 @@ export default {
     <div class="mt-[0px] w-[80%] pt-[56px] mx-auto min-h-[400px] mb-[100px]">
         <div class="flex items-end">
             <span class="text-[72px] font-[100] text-[#441D06]">Квартиры</span>
-            <span class="text-[24px] font-[300] mb-[20px] text-[#000] ml-[50px]">Секция 1, 4 эт., 2 комнаты, 72 кв.м.</span>
+            <span class="text-[24px] font-[300] mb-[20px] text-[#000] ml-[50px]">Секция {{ this.filtered_finish.section }}, {{ this.filtered_finish.floor }} эт., {{ this.filtered_finish.rooms }} комнаты, {{ this.filtered_finish.kvM }} кв.м.</span>
             <span class="text-[24px] font-[300] mb-[20px] uppercase text-[#0DB027] ml-[130px]">В продаже</span>
         </div>
         <div class="h-[30px] text-[13px] mt-[14px]">Главная - Квартиры</div>
@@ -60,7 +66,8 @@ export default {
 
                 </div>
 
-                <img class="mt-[25px] h-[614px]" src="../assets/img/property37.png" alt="">
+                <!-- <img class="mt-[25px] h-[614px]" src="../assets/img/property37.png" alt=""> -->
+                <div class="w-[100%] h-[620px] mt-[20px] sketchfab-embed-wrapper"> <iframe width="100%" height="100%" title="Modern Studio Apartment" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/68864965414f487090d1f677adbb8029/embed?autospin=1&autostart=1&annotations_visible=0&preload=1"> </iframe> </div>
 
             </div>
             <div class="right h-[700px] w-[22%] ">
@@ -93,9 +100,13 @@ export default {
                     </svg>
 
                 </div>
+                <img class="mt-[25px] w-[100%]" src="../assets/img/property37.png" alt=""> 
+                <div class="flex flex-col mt-[0px]">
+                
+                    
+                    <!-- <div class="sketchfab-embed-wrapper"> <iframe title="Isometric Living Room" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/8c4123cafbb2482a891ac6399f6c1ee8/embed?autospin=1&autostart=1&preload=1"> </iframe> </div> -->
 
-                <div class="flex flex-col mt-[40px]">
-                    <img src="../assets/img/Rectangle 38.png" alt="">
+
 
                     <div class="mt-[18px] flex items-center">
                         <img src="../assets/icons/fluent_print-20-filled.svg" alt="">
@@ -130,6 +141,7 @@ export default {
 
 
     </div>
+    <!--  -->
 </template>
 
 

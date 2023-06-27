@@ -27,10 +27,15 @@ export default {
   computed: {
     ...mapGetters(["sections"]),
   },
-  mounted() { },
+  mounted() {
+
+  },
   methods: {
+    filter_finished(item){
+      this.$router.push("/property")
+      this.$store.dispatch("FINISH_FILTERED", item)
+    },  
     chooseApartament() {
-      console.log("asd");
     },
     changeSection() {
       this.eventSection = this.sections.filter(
@@ -187,7 +192,7 @@ export default {
                     <h5>{{ item.kvM }} кв.м.</h5>
                   </span>
 
-                  <router-link to="/property" class="flex items-center h-[100px] w-[300px]">
+                  <div @click="filter_finished(item)" class="flex items-center h-[100px] w-[300px]">
 
                     <div class="h-[78px] w-[78px] rounded-[50%] absolute bg-[#FF9900] z-[1]"></div>
                     <button class="ml-[60px] mr-[10px] z-[10] text-[#000] text-[18px] font-semibold">
@@ -198,7 +203,7 @@ export default {
                         d="M13.4543 4.87402L12.42 5.9083L17.2953 10.7814H2.875V12.2189H17.2953L12.4207 17.0928L13.4543 18.1263L19.5637 12.017L20.0574 11.5002L19.5637 10.9834L13.4543 4.87402Z"
                         fill="black" />
                     </svg>
-                  </router-link>
+                  </div>
 
                 </div>
 
@@ -215,15 +220,7 @@ export default {
               </div>
             </div>
           </div>
-          <button @click="
-            (this.steps.apartament = false), (this.steps.selection = true)
-            " class="flex items-center translate-y-[-50%] float-right bg-[#FF9900] text-white px-[40px] py-[10px]">
-            <span class="text-[20px]">ДАЛЕЕ</span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-              stroke="currentColor" class="w-[50px] ml-[10px] h-[50px]">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-            </svg>
-          </button>
+        
         </div>
       </div>
     </div>
