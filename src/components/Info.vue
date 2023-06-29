@@ -31,10 +31,10 @@ export default {
 
   },
   methods: {
-    filter_finished(item){
+    filter_finished(item) {
       this.$router.push("/property")
       this.$store.dispatch("FINISH_FILTERED", item)
-    },  
+    },
     chooseApartament() {
     },
     changeSection() {
@@ -67,7 +67,7 @@ export default {
 
 
 <template>
-  <div class="mt-[0px] w-[80%] pt-[56px] mx-auto min-h-[400px]">
+  <div class="mt-[0px] w-[80%] pt-[56px] mx-auto min-h-[400px] mb-[100px]">
     <h2 class="text-[72px] font-[100] text-[#441D06]">Квартиры</h2>
     <div class="h-[30px]">Главная - Квартиры</div>
 
@@ -128,7 +128,7 @@ export default {
           </div>
         </div>
       </nav>
-      <div class="w-[100%] h-[755px] mb-[200px]">
+      <div class="w-[100%] h-[755px] ">
         <!-- отображение секций  -->
         <div v-if="this.steps.section">
           <img id="photo" :src="this.eventSection.img" alt="" />
@@ -220,11 +220,53 @@ export default {
               </div>
             </div>
           </div>
-        
+
         </div>
       </div>
+
     </div>
+
   </div>
+
+  <div class="h-[500px] w-[100%] ">
+            <div class="h-[435px] w-[80%] m-auto flex flex-col items-start">
+                <div class="h-[300px] w-[100%] ">
+                    <h2 class="text-[64px] leading-[5.5rem] uppercase text-[#441D06] font-thin w-[800px]">Будем
+                        рады ответить
+                        на все ваши вопросы</h2>
+                </div>
+                <p
+                    class="text-[#000] text-[24px] font-light uppercase leading-[2.2rem] text-center w-[35%] m-auto">
+                    Заполните форму и наш менеджер
+                    свяжется с вами в ближаейшее время</p>
+
+                <div class="h-[145px] w-[100%] flex justify-end items-center">
+                    <input type="text"
+                        class="h-[40px] outline-none w-[270px] text-[#A2A2A2] bg-[transparent] text-[18px] border-b-[1px] border-solid border-[#000]"
+                        placeholder="Имя">
+                    <input type="email"
+                        class="h-[40px] mx-[137px] outline-none bg-[transparent] w-[270px] text-[#A2A2A2] text-[18px] border-b-[1px] border-solid border-[#000]"
+                        placeholder="Email / Телефон">
+
+                    <div class="flex items-center h-[100px] w-[300px]">
+                        <div class="h-[78px] w-[78px] rounded-[50%] absolute bg-[#FF9900] z-[1]"></div>
+                        <button class="ml-[55px] mr-[10px] z-[10] text-[#000] text-[18px] font-semibold">Отправить</button>
+                        <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M13.4543 4.87402L12.42 5.9083L17.2953 10.7814H2.875V12.2189H17.2953L12.4207 17.0928L13.4543 18.1263L19.5637 12.017L20.0574 11.5002L19.5637 10.9834L13.4543 4.87402Z"
+                                fill="black" />
+                        </svg>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
 </template>
 
 

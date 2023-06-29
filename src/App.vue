@@ -2,6 +2,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 import { mapGetters } from 'vuex';
 // import HelloWorld from './components/HelloWorld.vue'
+import Footer from './components/Footer.vue';
 
 
 </script>
@@ -13,11 +14,13 @@ export default {
     ...mapGetters(["sections"])
   },
   mounted() {
-  }
+  },
+  components: { Footer }
+
 }
 </script>
 
-<template>  
+<template>
   <header class="head h-[114px] w-[100%] top-[0] sticky z-[999]">
     <div class="h-[100%] w-[80%]  m-auto flex items-center justify-between">
 
@@ -99,15 +102,18 @@ export default {
   </header>
 
   <RouterView />
+  <Footer />
 </template>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
-*{
+
+* {
   font-family: 'Open Sans';
 }
-.head{
+
+.head {
   box-shadow: 0px 5px 5px rgba(187, 187, 187, 0.646);
-  backdrop-filter: blur(15px)
+  backdrop-filter: blur(15px);
 }
 </style>
