@@ -13,9 +13,21 @@ export default {
   computed: {
     ...mapGetters(["sections"])
   },
+  data() {
+    return {
+      burger: false,
+      openHeader: false,
+    }
+  },
   mounted() {
   },
-  components: { Footer }
+  components: { Footer },
+  methods: {
+    openHeaderFunc(){
+      this.burger = !this.burger
+      this.openHeader = !this.openHeader
+    }
+  },
 
 }
 </script>
@@ -66,18 +78,19 @@ export default {
 
       </div>
       <div class="flex items-center">
-        <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="z-[999]" width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd"
             d="M1.4375 5.03125L2.15625 4.3125H20.8438L21.5625 5.03125V17.9688L20.8438 18.6875H2.15625L1.4375 17.9688V5.03125ZM2.875 6.51906V17.25H20.125V6.5205L11.9456 12.7937H11.0687L2.875 6.51906ZM18.7306 5.75H4.26938L11.5 11.3117L18.7306 5.75Z"
             fill="#441D06" />
         </svg>
-        <svg class="ml-[16px]" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="ml-[16px] z-[999]" width="27" height="27" viewBox="0 0 27 27" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
           <path
             d="M18.75 3H8.25C7.85218 3 7.47064 3.15804 7.18934 3.43934C6.90804 3.72064 6.75 4.10218 6.75 4.5V22.5C6.75 22.8978 6.90804 23.2794 7.18934 23.5607C7.47064 23.842 7.85218 24 8.25 24H18.75C19.1478 24 19.5294 23.842 19.8107 23.5607C20.092 23.2794 20.25 22.8978 20.25 22.5V4.5C20.25 4.10218 20.092 3.72064 19.8107 3.43934C19.5294 3.15804 19.1478 3 18.75 3ZM8.25 4.5H18.75V18H8.25V4.5ZM8.25 22.5V19.5H18.75V22.5H8.25Z"
             fill="#441D06" />
           <path d="M12.75 20.25H14.25V21.75H12.75V20.25Z" fill="#441D06" />
         </svg>
-        <a class="ml-[9px]" href="#">
+        <a class="ml-[9px] z-[999]" href="#">
           +998 91 701-30-43
         </a>
 
@@ -85,11 +98,46 @@ export default {
 
         <div class="flex items-center ml-[80px]">
 
-          <div class="burger h-[30px] w-[30px] m-[20px] flex flex-col items-start cursor-pointer justify-between">
+          <div @click="openHeaderFunc" :class="{active: this.burger == true}"
+            class="burger__menu z-[999] h-[30px] w-[30px] m-[20px] flex flex-col items-start cursor-pointer justify-between">
             <div class="h-[2px] bg-[#441D06] w-[50%]"></div>
             <div class="h-[2px] bg-[#441D06] w-[75%]"></div>
             <div class="h-[2px] bg-[#441D06] w-[100%]"></div>
           </div>
+
+          <div :class="{burgerActive: this.openHeader == true}" class="burger z-[101] h-[1060px] w-[373px] absolute right-[190px]">
+            <div class="h-[70%] w-[60%] m-auto mt-[120px] flex-col flex items-start ">
+              <ul @click="openHeaderFunc" class="">
+                <li class="mb-[30px] leading-[3.7rem] text-[#000] text-[18px] ">
+                  <router-link to="/project">О проекте</router-link>
+                </li>
+                <li class="mb-[30px] leading-[3.7rem] text-[#000] text-[18px] ">
+                  <router-link to="/">Инфраструктура </router-link>
+                </li>
+                <li class="mb-[30px] leading-[3.7rem] text-[#000] text-[18px] ">
+                  <router-link to="/info">Квартиры</router-link>
+                </li>
+                <li class="mb-[30px] leading-[3.7rem] text-[#000] text-[18px] ">
+                  <router-link to="/documents">Документы</router-link>
+                </li>
+                <li class="mb-[30px] leading-[3.7rem] text-[#000] text-[18px] ">
+                  <router-link to="/">Условия продаж</router-link>
+                </li>
+                <li class="mb-[30px] leading-[3.7rem] text-[#000] text-[18px] ">
+                  <router-link to="/">Ход строительства</router-link>
+                </li>
+                <li class="mb-[30px] leading-[3.7rem] text-[#000] text-[18px] ">
+                  <router-link to="/">Контакты</router-link>
+                </li>
+                <li class="mb-[30px] leading-[3.7rem] text-[#000] text-[18px] ">
+                  <router-link to="/">О застройщике</router-link>
+                </li>
+              </ul>
+
+            </div>
+
+          </div>
+
 
         </div>
 
@@ -114,6 +162,51 @@ export default {
 
 .head {
   box-shadow: 0px 5px 5px rgba(187, 187, 187, 0.646);
-  backdrop-filter: blur(15px);
+  background: #fff;
+}
+
+.burger__menu div {
+  transition-duration: .3s;
+}
+
+.burger__menu:hover div {
+  width: 100%;
+  caret-color: none;
+
+}
+
+.active div {
+    caret-color: none;
+    width: 100%;
+    background: #441D06 !important;
+}
+
+.active div:nth-child(1) {
+    opacity: 0;
+}
+
+.active div:nth-child(2) {
+    transform: translateY(100%) rotate(45deg);
+    min-width: 100%;
+    top: 50%;
+}
+
+.active div:nth-child(3) {
+    transform: translateY(-200%) rotate(-45deg);
+    min-width: 100%;
+    top: 50%;
+}
+
+
+
+
+.burger {
+  background: #fff;
+  transform: translateY(-100%);
+  transition-duration: .7s;
+}
+.burgerActive{
+  transform: translateY(495px);
+  /* transform: translateY(40%); */
 }
 </style>

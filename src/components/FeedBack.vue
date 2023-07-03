@@ -94,7 +94,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .active{
     scale: 1 !important;
     transform: scale(1) !important;
