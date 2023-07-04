@@ -11,6 +11,10 @@ export default {
         apartament: false,
         selection: false,
       },
+      selectSection: false,
+      selectFlat: false,
+      selectApartament: false,
+
       selection: 2,
       idx: 0,
       idx2: 0,
@@ -43,17 +47,20 @@ export default {
       this.eventSection = this.sections.filter(
         (item) => item.section_id == event.target.value
       )[0];
+      this.selectSection = true
     },
     changeFlat() {
       this.eventFlat = this.eventSection.floors.filter(
         (item) => item.floor_id == event.target.value
       )[0];
+      this.selectFlat = true
     },
 
     changeRoom() {
       this.eventApartament = this.eventFlat.rooms.filter(
         (item) => item.room_id == event.target.value
       )[0];
+      this.selectApartament = true
     },
 
     chalange_fix() {
@@ -134,8 +141,9 @@ export default {
         <!-- отображение секций  -->
         <div v-if="this.steps.section">
           <img id="photo" :src="this.eventSection.img" alt="" />
-          <button @click="(this.steps.section = false), (this.steps.flat = true)"
-            class="flex items-center translate-y-[-50%] float-right bg-[#FF9900] text-white px-[40px] py-[10px]">
+          <button :disabled="!this.selectSection" :class="{ activeBtn: this.selectSection }"
+            @click="(this.steps.section = false), (this.steps.flat = true)"
+            class="flex duration-[.3s] blur-[1px] items-center translate-y-[-50%] float-right bg-[#FF9900] text-white px-[40px] py-[10px]">
             <span class="text-[20px]">ДАЛЕЕ</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-[50px] ml-[10px] h-[50px]">
@@ -147,8 +155,9 @@ export default {
         <!-- отображение этажа  -->
         <div v-if="this.steps.flat">
           <img id="photo" :src="this.eventFlat.img" alt="" />
-          <button @click="(this.steps.flat = false), (this.steps.apartament = true)"
-            class="flex items-center translate-y-[-50%] float-right bg-[#FF9900] text-white px-[40px] py-[10px]">
+          <button :disabled="!this.selectFlat" :class="{ activeBtn: this.selectFlat }"
+            @click="(this.steps.flat = false), (this.steps.apartament = true)"
+            class="flex duration-[.3s] blur-[1px] items-center translate-y-[-50%] float-right bg-[#FF9900] text-white px-[40px] py-[10px]">
             <span class="text-[20px]">ДАЛЕЕ</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-[50px] ml-[10px] h-[50px]">
@@ -160,11 +169,11 @@ export default {
         <!-- отображение апартаментов  -->
         <div v-if="this.steps.apartament">
           <img id="photo" :src="this.eventApartament.img" alt="" />
-          <button @click="
+          <button :disabled="!this.selectApartament" :class="{activeBtn: this.selectApartament}" @click="
             (this.steps.apartament = false),
             (this.steps.selection = true),
             chalange_fix()
-            " class="flex items-center translate-y-[-50%] float-right bg-[#FF9900] text-white px-[40px] py-[10px]">
+            " class="flex duration-[.3s] blur-[1px] items-center translate-y-[-50%] float-right bg-[#FF9900] text-white px-[40px] py-[10px]">
             <span class="text-[20px]">ДАЛЕЕ</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
               stroke="currentColor" class="w-[50px] ml-[10px] h-[50px]">
@@ -231,14 +240,17 @@ export default {
   </div>
 
 
-  <feedBack/>
-
+  <feedBack />
 </template>
 
 
 
 <style scoped>
 .active {}
+
+.activeBtn {
+  filter: blur(0px);
+}
 
 .active span {
   color: #441d06;

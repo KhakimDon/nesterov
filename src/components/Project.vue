@@ -4,8 +4,9 @@
 
 <script>
 import FeedBack from './FeedBack.vue'
+import FeedDesign from './FeedDesign.vue'
 export default {
-    components: {FeedBack}
+    components: {FeedDesign, FeedBack}
 }
 </script>
 
@@ -113,33 +114,20 @@ export default {
 
             </div>
         </div>
-        <div class="h-[198px] w-[100%] flex justify-end mb-[155px]">
-            <div class="h-[100%] w-[75%] bg-[#441D06] flex items-center justify-between px-[58px]">
-                <h3 class="uppercase text-[24px] text-[#fff] leading-[2.5rem] font-light">Получить подборку дизайнерских решений
-                </h3>
-                <input type="email" placeholder="Email" class="w-[270px] text-[18px] text-[#A2A2A2] leading-6 bg-[transparent] border-b-[1px] border-[solid] border-[#fff] py-[5px] outline-none">
-
-                <div class="flex items-center h-[100px] w-[350px]">
-                    <div class="h-[78px] w-[78px] rounded-[50%] absolute bg-[#FF9900] z-[1]"></div>
-                    <button class="ml-[57px] mr-[10px] z-[10] text-[#fff] text-[18px] font-semibold">Получить</button>
-                    <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M13.4543 4.87402L12.42 5.9083L17.2953 10.7814H2.875V12.2189H17.2953L12.4207 17.0928L13.4543 18.1263L19.5637 12.017L20.0574 11.5002L19.5637 10.9834L13.4543 4.87402Z"
-                            fill="white" />
-                    </svg>
+        
 
 
-                </div>
-
-            </div>
-        </div>
-
+        <!-- <FeedDesign class="fed"/> -->
+        <FeedDesign/>
         <FeedBack/>
 
     </div>
 </template>
 
 <style scoped>
+/* .fed :nth-child(1){
+    background-color: red !important;
+} */
 .right {
     background-image: url('../assets/img/project-right.png');
     background-size: cover;

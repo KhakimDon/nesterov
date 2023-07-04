@@ -4,6 +4,24 @@ export default createStore({
   state: {
     filtered_finish: {},
     arr: "asdasd",
+
+    docsFile: [
+      {
+        type: 'word',
+        image: 'src/assets/img/word.png',
+        title: 'Документ про то как стороится это ЖК в москве',
+        date: '04.07.2023',
+        src: 'src/assets/word.docx',
+      },
+      {
+        type: 'pdf',
+        image: 'src/assets/img/pdf.png',
+        title: 'Документ где находиться наше ЖК и есть ли наши партнеры',
+        date: '09.07.2023',
+        src: 'src/assets/exs.xlsx',
+      },
+    ],
+
     sections: [
       // первая секция
       {
@@ -785,6 +803,7 @@ export default createStore({
   getters: {
     sections: (state) => state.sections,
     filtered_finish: (state) => state.filtered_finish,
+    docsFile: (state) => state.docsFile,
   },
   mutations: {
     FINISH_FILTERED_MUTATION(state, item){
