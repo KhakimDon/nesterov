@@ -3,6 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 import { mapGetters } from 'vuex';
 // import HelloWorld from './components/HelloWorld.vue'
 import Footer from './components/Footer.vue';
+import KreditRas from './components/KreditRas.vue';
 
 
 </script>
@@ -21,7 +22,7 @@ export default {
   },
   mounted() {
   },
-  components: { Footer },
+  components: { Footer, KreditRas },
   methods: {
     openHeaderFunc() {
       this.burger = !this.burger
@@ -154,6 +155,7 @@ export default {
 
   <RouterView />
   <Footer />
+  <KreditRas/>
 </template>
 
 <style scoped>
