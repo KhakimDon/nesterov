@@ -1,9 +1,20 @@
 
 <script setup></script>
 <script>
+import ModelViewer from "./ModelViewer.vue";
 import FeedBack from "./FeedBack.vue";
 export default {
-    components: { FeedBack },
+    components: { FeedBack, ModelViewer },
+    data() {
+        return {
+            enroll: false,
+        }
+    },
+    methods: {
+        enrollFunc() {
+            this.enroll = !this.enroll
+        }
+    },
 };
 </script>
 
@@ -25,7 +36,7 @@ export default {
 
                     <div class="flex items-center h-[100px] w-[300px] mt-[30px] mr-[325px]">
                         <div class="h-[78px] w-[78px] rounded-[50%] absolute bg-[#FF9900] z-[1]"></div>
-                        <router-link to="/info" class="ml-[60px] mr-[10px] z-[10] text-[#000] text-[18px] font-semibold" >
+                        <router-link to="/info" class="ml-[60px] mr-[10px] z-[10] text-[#000] text-[18px] font-semibold">
                             Выбрать квартиру
                         </router-link>
                         <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -162,22 +173,24 @@ export default {
                             Оцените удобство расположения
                         </h3>
 
-                        <div class="flex items-center h-[100px] w-[300px]">
+                        <button @click="enrollFunc" class="flex items-center h-[100px] w-[300px]">
                             <div class="h-[78px] w-[78px] rounded-[50%] absolute bg-[#FF9900] z-[1]"></div>
                             <button class="ml-[40px] w-[100%] mr-[10px] z-[10] text-[#fff] text-[18px] font-semibold">
                                 Записаться на просмотр
                             </button>
+
                             <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
                                     d="M13.4543 4.87402L12.42 5.9083L17.2953 10.7814H2.875V12.2189H17.2953L12.4207 17.0928L13.4543 18.1263L19.5637 12.017L20.0574 11.5002L19.5637 10.9834L13.4543 4.87402Z"
                                     fill="white" />
                             </svg>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
 
+        <ModelViewer :class="{ enrollActive: this.enroll == true }" />
         <FeedBack />
 
         <div class="h-[327px] w-[80%] bg-[#441D06] flex justify-end">
@@ -255,5 +268,17 @@ export default {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.enrollActive {
+    /* background: red !important; */
+    transform: scale(1);
+    margin-bottom: 100px;
+    height: 500px;
+}
+
+.enrollActive :nth-child(1) {
+    transform: scale(1);
+    transition-duration: .3s;
 }
 </style>
